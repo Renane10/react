@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer>
-      <p>Todos os direitos reservados.</p>
+      <p>Todos os direitos reservados @Renan Silva</p>
     </footer>
   );
 };
