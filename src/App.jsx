@@ -1,24 +1,20 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import Form from './Form/Form';
-
-const Titulo = ({ cor, texto ,children }) => {
-  const active = false;
- return <div>
-    <h1 style={{ color: cor}}>{texto}</h1>
-    <h3>{children}</h3>
- </div>
-};
 
 const App = () => {
+  // Callback no estado inicial, só será executado na criação do componente
+  const [ativo, setAtivo] = React.useState(() => {
+    const ativoLocal = window.localStorage.getItem('ativo');
+    return ativoLocal;
+  });
+
+  function handleClick() {
+    setAtivo((anterior) => !anterior);
+  }
+
   return (
-    <section>
-      <Titulo cor="red" texto="Formulário de teste" >Preencha seus dados</Titulo>
-      <Header />
-      <Form />
-      <Footer />
-    </section>
+    <button onClick={handleClick}>
+      {ativo ? 'Está Ativo' : 'Está Inativo'}
+    </button>
   );
 };
 
